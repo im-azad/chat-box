@@ -2,8 +2,11 @@ import React from 'react';
 
 const Chats = () => {
 	return (
-		<div>
-			<h1>Chat box</h1>
+		<div className='chats-page'>
+			<div className='nav-bar'>
+				<div className='logo-tab'>ChatBox</div>
+				<div className='logout-tab'>Logout</div>
+			</div>
 		</div>
 	);
 };

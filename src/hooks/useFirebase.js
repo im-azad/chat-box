@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import initializeAuthentication from '../firebase/firebase.initialize';
+import { useNavigate } from 'react-router-dom';
 import {
 	getAuth,
 	signInWithPopup,
@@ -30,10 +31,15 @@ const useFirebase = () => {
 			setUser({});
 		});
 	};
+	const navigate = useNavigate();
 	useEffect(() => {
 		onAuthStateChanged(auth, (user) => {
 			if (user) {
 				setUser(user);
+			}
+			console.log(user);
+			if (user) {
+				navigate('/chats', { replace: true });
 			}
 		});
 	}, []);
